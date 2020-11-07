@@ -15,7 +15,7 @@ import java.sql.ResultSet;
 public class DB {
 
 	private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	private static final String DB_URL = "jdbc:mysql://localhost:3306?serverTimezone=Asia/Seoul";
+	private static final String DB_URL = "jdbc:cubrid://localhost:3306?serverTimezone=Asia/Seoul";
 
 	private static final String USER = "root";
 
