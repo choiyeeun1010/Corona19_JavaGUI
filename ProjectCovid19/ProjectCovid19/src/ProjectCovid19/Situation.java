@@ -29,15 +29,6 @@ public class Situation extends JPanel {
 			"도봉구", "동대문구", "동작구", "마포구", "서대문구", "서초구", "성동구", "성북구", "송파구", "양천구", "영등포구",
 			"용산구", "은평구", "종로구", "중구", "중랑구"};
 	private String Month[] = { "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월" };
-	/*private String Day31[] = { "1일", "2일", "3일", "4일", "5일", "6일", "7일", "8일", "9일", "10일", "11일", "12일", "13일", "14일",
-			"15일", "16일", "17일", "18일", "19일", "20일", "21일", "22일", "23일", "24일", "25일", "26일", "27일", "28일", "29일",
-			"30일", "31일" };
-	private String Day30[] = { "1일", "2일", "3일", "4일", "5일", "6일", "7일", "8일", "9일", "10일", "11일", "12일", "13일", "14일",
-			"15일", "16일", "17일", "18일", "19일", "20일", "21일", "22일", "23일", "24일", "25일", "26일", "27일", "28일", "29일",
-			"30일" };
-	private String Day28[] = { "1일", "2일", "3일", "4일", "5일", "6일", "7일", "8일", "9일", "10일", "11일", "12일", "13일", "14일",
-			"15일", "16일", "17일", "18일", "19일", "20일", "21일", "22일", "23일", "24일", "25일", "26일", "27일", "28일 ", "29일" };
-*/
 	private JButton Result;
 
 	// 아래쪽 
@@ -47,15 +38,20 @@ public class Situation extends JPanel {
 	private String title[] = { "확진일", "환자번호", "접촉력", "상태"};
 	private JScrollPane scrollpane;
 
+	// 폰트
+	private Font Big = new Font("맑은 고딕", Font.BOLD, 23);
+	private Font middle = new Font("맑은 고딕", Font.PLAIN, 17);
+	private Font small = new Font("맑은 고딕", Font.BOLD, 13);
+
 	// 리스너
 	Listener Listener = new Listener();
-	
+
 	public Situation() {
 
 		this.setLayout(new GridLayout(2, 1));
 		North();
 		South();
-		
+
 	}
 	private void North() {
 		//  레이아웃 나누기
@@ -76,7 +72,7 @@ public class Situation extends JPanel {
 		region_Select = new JLabel("지역 선택: ");
 		date_Select = new JLabel("날짜 선택 : 2020년 ");
 		text = new JLabel("부터 한달간");
-		
+
 		// 콤보박스 
 		regionCombo = new JComboBox<String>(Region);
 		monthCombo = new JComboBox<String>(Month);
@@ -86,75 +82,35 @@ public class Situation extends JPanel {
 		regionCombo.setBackground(Color.white);
 		monthCombo.setBackground(Color.white);
 		//dateCombo.setBackground(Color.white);
-		
-//		// 월마다 다른 일수 콤보박스 
-//		monthCombo.addItemListener(new ItemListener() {
-//			@Override
-//			public void itemStateChanged(ItemEvent e) {
-//				// TODO Auto-generated method stub
-//				panel2.remove(dateCombo);
-//				panel2.remove(text);
-//
-//				switch ((String) e.getItem()) {
-//
-//				case "1월":
-//				case "3월":
-//				case "5월":
-//				case "7월":
-//				case "8월":
-//				case "10월":
-//				case "12월": // 31일짜리
-//					dateCombo = new JComboBox<String>(Day31);
-//					panel2.add(dateCombo);
-//					break;
-//				case "4월":
-//				case "6월":
-//				case "9월":
-//				case "11월": // 30일짜리
-//					dateCombo = new JComboBox<String>(Day30);
-//					panel2.add(dateCombo);
-//					break;
-//				case "2월": // 28일짜리
-//					dateCombo = new JComboBox<String>(Day28);
-//					panel2.add(dateCombo);
-//					break;
-//				default:
-//					System.out.println("월 선택 이상");
-//				}
-//				dateCombo.setBackground(Color.white);
-//				panel2.add(text);
-//				revalidate(); // 변경사항 바로 보기
-//			}
-//		});
-		
+
 		// 버튼
 		Result = new JButton("조회");
-		
+
 		// 리스너 추가 
 		Result.addActionListener(Listener);
-		
+
 		// 패널에 추가 
 		panel1.add(region_Select);
 		panel1.add(regionCombo);
-		
+
 		panel2.add(date_Select);
 		panel2.add(monthCombo);
 		//panel2.add(dateCombo);
 		panel2.add(text);
-		
+
 		panel3.add(Result);
-		
+
 		north.add(panel1);
 		north.add(panel2);
 		north.add(panel3);
-		
+
 		add(north);
 	}
-	
+
 	private void South() {
 		south = new JPanel(new GridLayout(1, 2));
 		south.setBackground(Color.white);
-		
+
 		centerPanel = new JPanel();
 		centerPanel.setBackground(Color.white);
 
@@ -164,80 +120,80 @@ public class Situation extends JPanel {
 			model = (DefaultTableModel) table.getModel();
 			model.addRow(new String[] {"", "", "", "", ""});
 		}
-		
+
 		scrollpane = new JScrollPane(table);
 		scrollpane.setPreferredSize(new Dimension(400, 135));
-		
+
 		centerPanel.add(scrollpane);
 		south.add(centerPanel);
 		add(south);
 	}
-	
-//	private String getEndDate(String month, String day) {
-//		int startMonth = Integer.parseInt(month);
-//		int startDay = Integer.parseInt(day);
-//
-//		switch (startMonth) {
-//		case 1:
-//		case 3:
-//		case 5:
-//		case 7:
-//		case 8:
-//		case 10:// 31일짜리
-//			if (startDay > 25) { // 26일부터
-//				return "2020-" + (startMonth + 1) + "-" + (startDay - 25);
-//			} else {
-//				return "2020-" + startMonth + "-" + (startDay + 6);
-//			}
-//		case 12: // 12월 31일까지의 데이터만 있으므로
-//			if (startDay > 25) { // 26일부터여도 12/31까지만 보여준다.
-//				return "2021-1-" + (startDay - 25);
-//			} else {
-//				return "2020-" + startMonth + "-" + (startDay + 6);
-//			}
-//		case 4:
-//		case 6:
-//		case 9:
-//		case 11:// 30일짜리
-//			if (startDay > 24) { // 25일부터
-//				return "2020-" + (startMonth + 1) + "-" + (startDay - 24);
-//			} else {
-//				return "2020-" + startMonth + "-" + (startDay + 6);
-//			}
-//		case 2: // 28일짜리
-//			if (startDay > 22) { // 23일부터
-//				return "2020-" + (startMonth + 1) + "-" + (startDay - 22);
-//			} else {
-//				return "2018-" + startMonth + "-" + (startDay + 6);
-//			}
-//		default:
-//			System.out.println("이상한 날짜");
-//			return null;
-//		}
-//	}
-	
 
-	
+	private void setTable(String region, String date) {
+
+		try {
+			System.out.println("시작 월: " + date);
+
+
+			// 1월 넘어가는거 나오면 표시는 하되 데이터가 없습니다. 하고싶은뎅,,,, - 기준으로 읽어서 앞이 2019인 경우는 null로하도록하자
+			connection = DB.makeConnection();
+			String pureDate = date.substring(0, 1);
+			pureDate = pureDate + "%";
+			
+			String sql;
+
+			sql = "SELECT 확진일, 환자번호, 접촉력, 상태 FROM corona WHERE 지역 = ? AND 확진일 LIKE ?";
+
+			
+			ResultSet rs;
+			PreparedStatement pstmt = connection.prepareStatement(sql.toString());
+			pstmt.setString(1, region);
+			pstmt.setString(2, date);
+
+			// 실행결과 저장
+			rs = pstmt.executeQuery();
+
+			// 테이블 값 설정
+			model = (DefaultTableModel) table.getModel(); // 테이블 설정 전에 초기화시키기
+			model.setNumRows(0);
+
+			int count = 1;
+			Object[] result = new Object[4];
+			while (rs.next()) {
+				// 날짜가 없는건 아예 읽지를 않는다....
+				System.out.println(rs.getString(1));
+				model.insertRow(1, new Object[] {rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4)});
+				
+				count++;
+			}
+
+			pstmt.close();
+			connection.close();
+		} catch (SQLException e) {
+			System.out.println("오류:" + e);
+		}
+	}
+
 	private class Listener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource() == Result) { // 조회버튼 클릭시
 				System.out.println("조회버튼 눌림");
-				
-				String selectRegion = "";
-				String selectMonth = "";
-				String selectDay = "";
-				
-				String temp = ""; // 오른쪽 라벨 설명
-				
-				selectRegion = (String) regionCombo.getSelectedItem();
-				selectMonth = (String) monthCombo.getSelectedItem();
-				selectDay = (String) dateCombo.getSelectedItem();
-				
-				temp += "<html><br><br><br>다음은 ";
-				temp += selectRegion + "에 대한 <br>2020년 " + selectMonth + " " + selectDay
-						+ "부터 일주일간의 확진자 입니다.";
+
+			String region = "";
+			String date = "";
+
+			String temp = ""; // 오른쪽 라벨 설명
+
+			region = (String) regionCombo.getSelectedItem();
+			date = (String) monthCombo.getSelectedItem();
+			setTable(region, date);
+			
+			temp += "<html><br><br><br>다음은 ";
+			temp += region + "에 대한 <br>2020년 " + date + "월의 확진자 입니다.";
 
 			}
 		}
 	}
+
+
 }
