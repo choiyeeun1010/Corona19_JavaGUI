@@ -35,7 +35,8 @@ public class MainHome extends JPanel{
 		setSize(800, 400);
 		main = new JPanel();
 		main.setLayout(new BorderLayout());
-		main.setBackground(Color.WHITE);
+		Color color = new Color(213, 247, 248);
+		main.setBackground(color);
 		name = new JLabel("<html>60162180  조민수<br>60162117  문정환<br>60150464  임재범<br>60192226  이유정<br>60192249  최예은<br><br><br><br></html>");
 		name.setHorizontalAlignment(JLabel.CENTER);
 		main.add(name, BorderLayout.SOUTH);

@@ -2,9 +2,9 @@ package ProjectCovid19;
 
 import java.awt.*;
 import javax.swing.*;
-import java.awt.event.ActionEvent;
+import java.awt.event.*;
 import java.awt.event.ActionListener;
-
+import javax.swing.event.*;
 public class Main extends JFrame{
 	// 전체 틀
 	static public Container contentPane;
@@ -82,15 +82,15 @@ public class Main extends JFrame{
 		// 카드 생성
 		mainHomeCard = new MainHome();
 		situationCard = new Situation();
-		// riskDCard = new Route();
-		// routeCard = new RiskD();
+		// routeCard = new Route();
+		riskDCard = new RiskD();
 		selfCheckCard = new SelfCheck();
 		wordsCard = new Words();
 		
 		cards.add(mainHomeCard, "function_MainHome");
 		cards.add(situationCard, "function_Situation");
-		//cards.add(riskDCard, "function_Route");
-		//cards.add(routeCard, "function_RiskD");
+		//cards.add(routeCard, "function_Route");
+		cards.add(riskDCard, "function_RiskD");
 		cards.add(selfCheckCard, "function_SelfCheck");
 		cards.add(wordsCard, "function_Words");
 
@@ -120,7 +120,7 @@ public class Main extends JFrame{
 		Extra.setFont(Inquiry.getFont().deriveFont(17.0f));
 		
 		menuHome = new JMenuItem("Main");
-		menuHome.setPreferredSize(new Dimension(90, 30));
+		menuHome.setPreferredSize(new Dimension(80, 30));
 		menuHome.setFont(Home.getFont().deriveFont(15.0f));
 		menuHome.addActionListener(MenuListner);
 		
@@ -148,8 +148,6 @@ public class Main extends JFrame{
 		menuWords.setPreferredSize(new Dimension(90, 30));
 		menuWords.setFont(Home.getFont().deriveFont(15.0f));
 		menuWords.addActionListener(MenuListner);
-		
-		
 		
 		// 메뉴바에 메뉴를 추가
 		menubar.add(Home);
@@ -188,35 +186,40 @@ public class Main extends JFrame{
 		//Color color = new Color(213, 247, 248);
 		toolbar.setBackground(Color.WHITE);
 		
+		// 툴바 버튼에 마우스를 올려놓았을때 이름을 나오게 하는 리스너 
+		MyMouseListener mouseListener = new MyMouseListener();
+		
 		// 버튼을 리스너에 연결
 		mainHome = new JButton(new ImageIcon("./images/home.png"));
 		mainHome.addActionListener(ToolbarListener);
 		mainHome.setBackground(Color.WHITE);
-		
+		mainHome.addMouseListener(mouseListener);
+
 		situation = new JButton(new ImageIcon("./images/stuation.png"));
 		situation.addActionListener(ToolbarListener);
 		situation.setBackground(Color.WHITE);
-
+		situation.addMouseListener(mouseListener);
 		
 		route = new JButton(new ImageIcon("./images/route.png"));
 		route.addActionListener(ToolbarListener);
 		route.setBackground(Color.WHITE);
-
+		route.addMouseListener(mouseListener);
 		
 		riskD = new JButton(new ImageIcon("./images/risk.png"));
 		riskD.addActionListener(ToolbarListener);
 		riskD.setBackground(Color.WHITE);
-
+		riskD.addMouseListener(mouseListener);
 		
 		selfCheck = new JButton(new ImageIcon("./images/selfcheck.png"));
 		selfCheck.addActionListener(ToolbarListener);
 		selfCheck.setBackground(Color.WHITE);
+		selfCheck.addMouseListener(mouseListener);
 
-		
 		words = new JButton(new ImageIcon("./images/word.png"));
 		words.addActionListener(ToolbarListener);
 		words.setBackground(Color.WHITE);
-		
+		words.addMouseListener(mouseListener);
+
 		// 툴바에 버튼 추가
 		toolbar.add(mainHome);
 		toolbar.addSeparator();
@@ -235,7 +238,7 @@ public class Main extends JFrame{
 		contentPane.add(toolbar, BorderLayout.NORTH);
 	}
 	
-	// 리스너
+	// 버튼을 눌렀을때 발생하는 리스너
 	class Listener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			CardLayout pick = (CardLayout) cards.getLayout();
@@ -264,5 +267,50 @@ public class Main extends JFrame{
 				pick.show(cards, "function_Words");
 			}
 		}
+	}
+	
+	// 버튼이 무슨 패널로 연결되는지 알려주기 위한 마우스 리스너 
+	class MyMouseListener implements MouseListener{
+
+	    @Override
+	    public void mouseClicked(MouseEvent e) {
+	    }
+
+	    @Override
+	    public void mousePressed(MouseEvent e) {
+	    }
+
+	    @Override
+	    public void mouseReleased(MouseEvent e) {
+	    }
+
+	    @Override//마우스가 버튼 안으로 들어오면 버튼의 이름을 표시해줌 
+	    public void mouseEntered(MouseEvent e) {
+	    	if(e.getSource() == mainHome) {
+	    		mainHome.setText("홈화면");
+
+			}else if(e.getSource() == situation) {
+				situation.setText("확진자조회");
+				
+			}else if(e.getSource() == route) {
+				route.setText("경로조회");
+
+				
+			}else if(e.getSource() == riskD) {
+				riskD.setText("위험도조회");
+
+			}else if(e.getSource() == selfCheck) {
+				selfCheck.setText("자가진단표");
+
+			}else if(e.getSource() == words) {
+				words.setText("눌러보세요");
+			}
+	    }
+
+	    @Override//마우스가 버튼 밖으로 나가면 원래대로 돌아옴 
+	    public void mouseExited(MouseEvent e) {
+	    	JButton b = (JButton)e.getSource();
+	        b.setText("");
+	    }
 	}
 }

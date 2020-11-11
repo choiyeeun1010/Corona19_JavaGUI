@@ -208,6 +208,7 @@ public class SelfCheck extends JPanel{
 		// 보여주기
 		setVisible(true);
 	}
+	// 제출 버튼 클릭시 결과를 보여주는 리스너 
 	private class Listener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource() == button) { // 제출버튼 클릭시

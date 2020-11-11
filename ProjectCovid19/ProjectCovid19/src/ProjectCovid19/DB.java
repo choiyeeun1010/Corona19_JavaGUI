@@ -14,12 +14,12 @@ import java.sql.ResultSet;
 
 public class DB {
 	
-	private static final String JDBC_DRIVER = "cubrid.jdbc.driver.CUBRIDDriver";
-	private static final String DB_URL = "jdbc:cubrid:mskim1:33000:testdb:::";
+	private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+	private static final String DB_URL = "jdbc:mysql://localhost:3306/corona?serverTimezone=Asia/Seoul";
 
-	private static final String USER = "dba";
+	private static final String USER = "root";
 
-	private static String PASS = "";
+	private static String PASS = "pw1234";
 	private static String NAME;
 
 	private static Driver driver;
