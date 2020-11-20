@@ -11,54 +11,54 @@ public class SelfCheck extends JPanel{
 	
 	// 첫 번째 질문
 	private JLabel text1 = new JLabel("1. 귀하의 몸에 열이 있나요?");
-	protected JRadioButton firstButton1 = new JRadioButton("37.5도 미만");
-	protected JRadioButton firstButton2 = new JRadioButton("37.5도 ~ 38도 또는 발열감");
-	protected JRadioButton firstButton3 = new JRadioButton("38도 이상");
+	private JRadioButton firstButton1 = new JRadioButton("37.5도 미만");
+	private JRadioButton firstButton2 = new JRadioButton("37.5도 ~ 38도 또는 발열감");
+	private JRadioButton firstButton3 = new JRadioButton("38도 이상");
 	
 	// 두 번째 질문
 	private JLabel text2 = new JLabel("2. 공통적인 증상은 다음과 같습니다.   "
 			+ "\n귀하에게 코로나19가 의심되는 증상이 있나요? (해당사항 모두 선택)");
-	protected JCheckBox firstcheck1 = new JCheckBox("아니오");
-	protected JCheckBox firstcheck2 = new JCheckBox("발열");
-	protected JCheckBox firstcheck3 = new JCheckBox("마른기침");
-	protected JCheckBox firstcheck4 = new JCheckBox("피로감");
+	private JCheckBox firstcheck1 = new JCheckBox("아니오");
+	private JCheckBox firstcheck2 = new JCheckBox("발열");
+	private JCheckBox firstcheck3 = new JCheckBox("마른기침");
+	private JCheckBox firstcheck4 = new JCheckBox("피로감");
 	
 	// 세 번째 질문 
 	private JLabel text3 = new JLabel("3. 드물지만 다음과 같은 증상이 나타날 수도 있습니다.   "
 			+ "귀하에게 코로나 19가 의심되는 증상이 있나요? (해당사항 모두 선택");
-	protected JCheckBox secondcheck1 = new JCheckBox("아니오");
-	protected JCheckBox secondcheck2 = new JCheckBox("몸살");
-	protected JCheckBox secondcheck3 = new JCheckBox("인후통");
-	protected JCheckBox secondcheck4 = new JCheckBox("설사");
-	protected JCheckBox secondcheck5 = new JCheckBox("결막염");
-	protected JCheckBox secondcheck6 = new JCheckBox("두통");
-	protected JCheckBox secondcheck7 = new JCheckBox("미각 또는 후각 상실");
-	protected JCheckBox secondcheck8 = new JCheckBox("피부 발진, 손가락 또는 발가락 변색");
+	private JCheckBox secondcheck1 = new JCheckBox("아니오");
+	private JCheckBox secondcheck2 = new JCheckBox("몸살");
+	private JCheckBox secondcheck3 = new JCheckBox("인후통");
+	private JCheckBox secondcheck4 = new JCheckBox("설사");
+	private JCheckBox secondcheck5 = new JCheckBox("결막염");
+	private JCheckBox secondcheck6 = new JCheckBox("두통");
+	private JCheckBox secondcheck7 = new JCheckBox("미각 또는 후각 상실");
+	private JCheckBox secondcheck8 = new JCheckBox("피부 발진, 손가락 또는 발가락 변색");
 
 	// 네 번째 질문
 	private JLabel text4 = new JLabel("4. 심각한 증상은 다음과 같습니다.   "
 			+ "귀하에게 코로나19가 의심되는 증상이 있나요?");
-	protected JCheckBox thirdcheck1 = new JCheckBox("아니오");
-	protected JCheckBox thirdcheck2 = new JCheckBox("호급 곤란 또는 숨 가쁨");
-	protected JCheckBox thirdcheck3 = new JCheckBox("가슴 통증 또는 압박감");
-	protected JCheckBox thirdcheck4 = new JCheckBox("언어 또는 운동 장애");
+	private JCheckBox thirdcheck1 = new JCheckBox("아니오");
+	private JCheckBox thirdcheck2 = new JCheckBox("호급 곤란 또는 숨 가쁨");
+	private JCheckBox thirdcheck3 = new JCheckBox("가슴 통증 또는 압박감");
+	private JCheckBox thirdcheck4 = new JCheckBox("언어 또는 운동 장애");
 	
 	// 다섯번째 질문
 	private JLabel text5 = new JLabel("5. 귀하에게서는 최근 (14일 이내) 해외여행, 밀집시설/집합금지 명령을 받은"
 			+ "위험 지역을 다녀 온 사실이 있나요?");
-	protected JRadioButton secondButton1 = new JRadioButton("아니오");
-	protected JRadioButton secondButton2 = new JRadioButton("예");
+	private JRadioButton secondButton1 = new JRadioButton("아니오");
+	private JRadioButton secondButton2 = new JRadioButton("예");
 	
 	// 여섯번째 질문
 	private JLabel text6 = new JLabel("6. 동거가족(또는 동거인) 중 최근(14일 이내) 해외여행, "
 			+ "밀집시설/집합금지 명령을 받은 위험 지역을 다녀 온 사실이 있나요?");
-	protected JRadioButton thirdButton1 = new JRadioButton("아니오");
-	protected JRadioButton thirdButton2 = new JRadioButton("예");
+	private JRadioButton thirdButton1 = new JRadioButton("아니오");
+	private JRadioButton thirdButton2 = new JRadioButton("예");
 	
 	// 일곱번째 질문
 	private JLabel text7 = new JLabel("7. 동거가족(또는 동거인) 중 자가 격리된 가족이 있나요?");
-	protected JRadioButton fourthButton1 = new JRadioButton("아니오");
-	protected JRadioButton fourthButton2 = new JRadioButton("예");
+	private JRadioButton fourthButton1 = new JRadioButton("아니오");
+	private JRadioButton fourthButton2 = new JRadioButton("예");
 	
 	private JPanel panel1 = new JPanel();
 	private JPanel panel_1 = new JPanel();

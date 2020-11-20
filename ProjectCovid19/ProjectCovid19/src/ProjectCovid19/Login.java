@@ -87,7 +87,7 @@ public class Login extends JFrame {
 			// 비지 않았다면 진행한다.
 
 			// 디비연결, 디비연결 후 디비클래스에서 메인창 메소드 창 띄우기
-			DB.createDatabase(userText.getText(), new String(passText.getPassword()));
+			//DB.makeconnection(userText.getText(), new String(passText.getPassword()));
 			//JOptionPane.showMessageDialog(null, "Success");
 		} else {
 			JOptionPane.showMessageDialog(null, "Faild");

@@ -6,15 +6,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 
 import javax.swing.*;
-
 import javax.swing.table.DefaultTableModel;
 
 import java.awt.*;
-
-import java.util.*;
 
 public class Situation extends JPanel {
 
@@ -23,7 +19,7 @@ public class Situation extends JPanel {
 
 	// 위쪽 패널
 	private JPanel space, panel1, panel2;
-	private JLabel region_Select, date_Select;
+	private JLabel string, region_Select, date_Select;
 	private JComboBox<String> regionCombo, monthCombo;
 	private String Region[] = { "강남구", "강동구", "강북구", "강서구", "관악구", "광진구", "구로구", "금천구", "기타", "노원구", "도봉구", "동대문구",
 			"동작구", "마포구", "서대문구", "서초구", "성동구", "성북구", "송파구", "양천구", "영등포구", "용산구", "은평구", "종로구", "중구", "중랑구" };
@@ -34,7 +30,7 @@ public class Situation extends JPanel {
 	private JPanel centerPanel;
 	private static JTable table;
 	private DefaultTableModel model;
-	private String title[] = { "연번", "확진일", "환자번호", "접촉력", "상태" };
+	private String title[] = { "연번", "확진일", "환자번호", "지역", "접촉력", "상태" };
 	private JScrollPane scrollpane;
 
 	// 리스너
@@ -54,15 +50,18 @@ public class Situation extends JPanel {
 		north.setSize(750, 100);
 		north.setBackground(Color.white);
 
-		space = new JPanel();
+		space = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 25));
 		space.setBackground(Color.white);
 
-		panel1 = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 0));
+		panel1 = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 25));
 		panel1.setBackground(Color.white);
 
-		panel2 = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 0));
+		panel2 = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 8));
 		panel2.setBackground(Color.white);
-
+		
+		// 안내문구
+		string = new JLabel("지역별, 월별로 확진자의 전체적인 정보를 보여줍니다.");
+		
 		// 레이블
 		region_Select = new JLabel("지역 : ");
 		date_Select = new JLabel("날짜 : 2020년 ");
@@ -83,6 +82,7 @@ public class Situation extends JPanel {
 		search.addActionListener(Listener);
 
 		// 패널에 추가
+		space.add(string);
 		panel1.add(region_Select);
 		panel1.add(regionCombo);
 		panel1.add(date_Select);
@@ -138,7 +138,7 @@ public class Situation extends JPanel {
 
 			String sql;
 
-			sql = "SELECT 연번, 확진일, 환자번호, 접촉력, 상태 FROM person WHERE 지역 = ? AND 확진일 LIKE ? ORDER BY 연번 DESC";
+			sql = "SELECT 연번, 확진일, 환자번호, 지역, 접촉력, 상태 FROM person WHERE 지역 = ? AND 확진일 LIKE ? ORDER BY 연번 DESC";
 
 			ResultSet rs;
 			PreparedStatement pstmt = connection.prepareStatement(sql);
@@ -156,12 +156,12 @@ public class Situation extends JPanel {
 				do {
 					model = (DefaultTableModel) table.getModel();
 					model.insertRow(0,
-							new Object[] { rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5) });
+							new Object[] { rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6) });
 				} while (rs.next());
 			} else {
 				// 만약 결과가 없다면 결과 없음으로 출력
 				model = (DefaultTableModel) table.getModel();
-				model.insertRow(0, new Object[] {"결과없음", "결과없음", "결과없음", "결과없음", "결과없음" });
+				model.insertRow(0, new Object[] {"결과없음", "결과없음", "결과없음", "결과없음", "결과없음", "결과없음"});
 			}
 
 			pstmt.close();
