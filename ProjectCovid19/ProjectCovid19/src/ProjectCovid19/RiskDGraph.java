@@ -34,7 +34,7 @@ public class RiskDGraph extends JFrame {
 		this.myDate = myDate;
 
 		this.setTitle(this.myDate + "의 확진자 수 그래프");
-		this.setSize(1300, 600);
+		this.setSize(900, 600);
 		this.setLocation(450, 250);
 		this.setBackground(Color.white);
 		// 패널 및 클래스
@@ -67,7 +67,7 @@ public class RiskDGraph extends JFrame {
 			super.paint(g);
 			Graphics2D g2 = (Graphics2D) g;
 			g.clearRect(0, 0, 900, 500);
-			g.drawLine(100, 400, 1200, 400); // x축
+			g.drawLine(100, 400, 800, 400); // x축
 			g.drawLine(100, 60, 100, 400); // y축
 
 			// 데이터 값들을 저장
@@ -107,7 +107,7 @@ public class RiskDGraph extends JFrame {
 			// y축
 			for (int cnt = 80; cnt < 400; cnt = cnt + 20) {
 				g.setColor(new Color(189, 189, 189));
-				g.drawLine(100, cnt, 1200, cnt);
+				g.drawLine(100, cnt, 800, cnt);
 				g.setColor(new Color(0, 0, 0));
 
 			}
@@ -133,50 +133,11 @@ public class RiskDGraph extends JFrame {
 			// x축
 			int i = 0;
 			for (int cnt = 125; cnt < 900 && i < data.size(); cnt = cnt + 50) {
-				if (!(x.get(i) == "경북" && x.get(i) == "고양시" && x.get(i) == "김포" && x.get(i) == "대구" && x.get(i) == "아산"
-						&& x.get(i) == "인천시" && x.get(i) == " 평택" && x.get(i) == "국외" && x.get(i) == "대전"
-						&& x.get(i) == "부천시" && x.get(i) == "성남시" && x.get(i) == "안양시" && x.get(i) == "양주시"
-						&& x.get(i) == "용인시" && x.get(i) == "재외국민" && x.get(i) == "천안" && x.get(i) == "파주"
-						&& x.get(i) == "남양주시" && x.get(i) == "미국" && x.get(i) == "스페인" && x.get(i) == "시흥"
-						&& x.get(i) == "화성" && x.get(i) == "구리" && x.get(i) == "부평" && x.get(i) == "양평"
-						&& x.get(i) == "의왕" && x.get(i) == "군포" && x.get(i) == "수원시" && x.get(i) == "안산"
-						&& x.get(i) == "주소불명" && x.get(i) == "경기광주" && x.get(i) == "광명" && x.get(i) == "기타"
-						&& x.get(i) == "하남" && x.get(i) == "포천" && x.get(i) == "타시도")) {
-					g.drawString(x.get(i), cnt, 425);
-					i++;
-				}
-
+				g.drawString(x.get(i), cnt, 425);
+				i++;
 			}
 
-			// 막대그리기
-			int[] r = new int[7];
-			int[] s = new int[7];
-			for (i = 0; i < 7; i++) {
-				double mg = numberData[i];
-				System.out.println(mg);
-
-				if (mg == 0) {
-					continue;
-				}
-
-				for (int j = 0; j < 7; j++) {
-
-					g.setColor(new Color(248, 224, 230));
-					if (mg == range[j]) {
-						g.fillRect(145 + i * 100, 80 + (j * 20), 30, 320 - j * 20);
-					} else if (mg < range[j] && mg > range[j + 1]) {
-						g.fillRect(145 + i * 100, 80 + (j * 20 + 10), 30, 320 - (j * 20 + 10));
-					}
-					if (mg < range[7]) {
-						g.fillRect(145 + i * 100, 80 + (15 * 20 + 10), 30, 320 - (15 * 20 + 10));
-					}
-
-				}
-			}
-			g2.setStroke(new BasicStroke(3));
-			g2.setColor(Color.black);
-			g2.drawPolyline(r, s, 7);
-			g2.setStroke(new BasicStroke(1));
+			
 
 		}
 	}

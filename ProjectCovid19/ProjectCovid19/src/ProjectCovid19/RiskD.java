@@ -154,7 +154,7 @@ public class RiskD extends JPanel {
 			String sql;
 
 			//sql = "SELECT 확진일, 지역 FROM person WHERE 확진일 LIKE ? ORDER BY 지역 DESC";
-			sql = "SELECT 지역, COUNT(지역) AS 확진자수 FROM person WHERE 확진일 LIKE ? group by 지역  ORDER BY 지역  DESC";
+			sql = "SELECT 지역, COUNT(지역) AS 확진자수 FROM person WHERE 확진일 LIKE ? group by 지역  ORDER BY 확진자수";
 
 			ResultSet rs;
 			PreparedStatement pstmt = connection.prepareStatement(sql);
@@ -216,15 +216,30 @@ public class RiskD extends JPanel {
 				ArrayList<String> x = new ArrayList<String>();
 				ArrayList<String> data = new ArrayList<String>();
 				// 그래프로 데이터 전달해주기 
-				for (int i = 0; i < table.getRowCount(); i++) {
-					x.add((String)table.getValueAt(i,  0));
+				
+				if ((String)monthCombo.getSelectedItem() == "1월") {
+					for (int i = 0; i < 5; i++) {
+						x.add((String)table.getValueAt(i,  0));
+					}
+					for (int i = 0; i < 5; i++) {
+						data.add((String)table.getValueAt(i,  1));
+					}
+					for (int i = 0; i < 5; i++) {
+						System.out.println(x.get(i) + "     " + data.get(i));
+					}
 				}
-				for (int i = 0; i < table.getRowCount(); i++) {
-					data.add((String)table.getValueAt(i,  1));
+				else {
+					for (int i = 0; i < 13; i++) {
+						x.add((String)table.getValueAt(i,  0));
+					}
+					for (int i = 0; i < 13; i++) {
+						data.add((String)table.getValueAt(i,  1));
+					}
+					for (int i = 0; i < 13; i++) {
+						System.out.println(x.get(i) + "     " + data.get(i));
+					}
 				}
-				for (int i = 0; i < table.getRowCount(); i++) {
-					System.out.println(x.get(i) + "     " + data.get(i));
-				}
+				
 				if (!isEmpty) {
 					if (e.getSource() == showMap) {
 						areaGraph = new RiskDMap();
