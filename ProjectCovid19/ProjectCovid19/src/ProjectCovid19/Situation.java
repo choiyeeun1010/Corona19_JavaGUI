@@ -61,7 +61,7 @@ public class Situation extends JPanel {
 		
 		// 안내문구
 		string = new JLabel("지역별, 월별로 확진자의 전체적인 정보를 보여줍니다.");
-		
+		string.setFont(string.getFont().deriveFont(15.0f));
 		// 레이블
 		region_Select = new JLabel("지역 : ");
 		date_Select = new JLabel("날짜 : 2020년 ");

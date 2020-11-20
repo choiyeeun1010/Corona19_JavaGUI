@@ -60,28 +60,28 @@ public class SelfCheck extends JPanel{
 	private JRadioButton fourthButton1 = new JRadioButton("아니오");
 	private JRadioButton fourthButton2 = new JRadioButton("예");
 	
-	private JPanel panel1 = new JPanel();
-	private JPanel panel_1 = new JPanel();
+	private JPanel panel1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
+	private JPanel panel_1 = new JPanel(new FlowLayout(FlowLayout.LEFT, 40, 1));
 
-	private JPanel panel2 = new JPanel();
-	private JPanel panel_2 = new JPanel();
+	private JPanel panel2 = new JPanel(new FlowLayout(FlowLayout.LEFT));
+	private JPanel panel_2 = new JPanel(new FlowLayout(FlowLayout.LEFT, 40, 1));
 
-	private JPanel panel3 = new JPanel();
-	private JPanel panel_3 = new JPanel();
+	private JPanel panel3 = new JPanel(new FlowLayout(FlowLayout.LEFT));
+	private JPanel panel_3 = new JPanel(new FlowLayout(FlowLayout.LEFT, 40, 1));
 
-	private JPanel panel4 = new JPanel();
-	private JPanel panel_4 = new JPanel();
+	private JPanel panel4 = new JPanel(new FlowLayout(FlowLayout.LEFT));
+	private JPanel panel_4 = new JPanel(new FlowLayout(FlowLayout.LEFT, 40, 1));
 
-	private JPanel panel5 = new JPanel();
-	private JPanel panel_5 = new JPanel();
+	private JPanel panel5 = new JPanel(new FlowLayout(FlowLayout.LEFT));
+	private JPanel panel_5 = new JPanel(new FlowLayout(FlowLayout.LEFT, 40, 1));
 
-	private JPanel panel6 = new JPanel();
-	private JPanel panel_6 = new JPanel();
+	private JPanel panel6 = new JPanel(new FlowLayout(FlowLayout.LEFT));
+	private JPanel panel_6 = new JPanel(new FlowLayout(FlowLayout.LEFT, 40, 1));
 
-	private JPanel panel7 = new JPanel();
-	private JPanel panel_7 = new JPanel();
+	private JPanel panel7 = new JPanel(new FlowLayout(FlowLayout.LEFT));
+	private JPanel panel_7 = new JPanel(new FlowLayout(FlowLayout.LEFT, 40, 1));
 	
-	private JPanel panel8 = new JPanel();
+	private JPanel panel8 = new JPanel(new FlowLayout(FlowLayout.CENTER));
 	
 	// 리스너
 	Listener Listener = new Listener();
@@ -93,35 +93,32 @@ public class SelfCheck extends JPanel{
         
         
 		// 배경색 지정
-        panel1.setBackground(Color.white);  
+		Color color = new Color(0xD5F7F8);
+
+        panel1.setBackground(color);  
         panel_1.setBackground(Color.white);                  
        
-        panel2.setBackground(Color.white);   
+        panel2.setBackground(color);   
         panel_2.setBackground(Color.white);                  
 
-        panel3.setBackground(Color.white);   
+        panel3.setBackground(color);   
         panel_3.setBackground(Color.white);                  
 
-        panel4.setBackground(Color.white);    
+        panel4.setBackground(color);    
         panel_4.setBackground(Color.white);                  
 
-        panel5.setBackground(Color.white);
+        panel5.setBackground(color);
         panel_5.setBackground(Color.white);                  
 
-        panel6.setBackground(Color.white);    
+        panel6.setBackground(color);    
         panel_6.setBackground(Color.white);                  
 
-        panel7.setBackground(Color.white);     
+        panel7.setBackground(color);     
         panel_7.setBackground(Color.white);                  
 
         panel8.setBackground(Color.white);
         button.setBackground(Color.WHITE);
-		// 크기 결정
-		//setSize(800, 400);
-		
-		// 레이아웃 설정
-		//setLayout(new FlowLayout());
-		
+        
 		// 함께 동작할 라디오 버튼 그룹으로 묶기
 		ButtonGroup group1 = new ButtonGroup();
 		group1.add(firstButton1);
@@ -142,14 +139,21 @@ public class SelfCheck extends JPanel{
 		panel_1.add(firstButton1);
 		panel_1.add(firstButton2);
 		panel_1.add(firstButton3);
-		
+		firstButton1.setBackground(Color.white);                  
+		firstButton2.setBackground(Color.white);                  
+		firstButton3.setBackground(Color.white);                  
+
 		// 판넬에 두 번째 질문 추가
 		panel2.add(text2);
 		panel_2.add(firstcheck1);
 		panel_2.add(firstcheck2);
 		panel_2.add(firstcheck3);
 		panel_2.add(firstcheck4);
-		
+		firstcheck1.setBackground(Color.white);                  
+		firstcheck2.setBackground(Color.white);                  
+		firstcheck3.setBackground(Color.white);                  
+		firstcheck4.setBackground(Color.white);                  
+
 		// 판넬에 세 번째 질문 추가 
 		panel3.add(text3);
 		panel_3.add(secondcheck1);
@@ -160,6 +164,14 @@ public class SelfCheck extends JPanel{
 		panel_3.add(secondcheck6);
 		panel_3.add(secondcheck7);
 		panel_3.add(secondcheck8);
+		secondcheck1.setBackground(Color.white);                  
+		secondcheck2.setBackground(Color.white);                  
+		secondcheck3.setBackground(Color.white);                  
+		secondcheck4.setBackground(Color.white);                  
+		secondcheck5.setBackground(Color.white);                  
+		secondcheck6.setBackground(Color.white);                  
+		secondcheck7.setBackground(Color.white);                  
+		secondcheck8.setBackground(Color.white);                  
 
 		// 판넬에 네 번째 질문 추가 
 		panel4.add(text4);
@@ -167,22 +179,32 @@ public class SelfCheck extends JPanel{
 		panel_4.add(thirdcheck2);
 		panel_4.add(thirdcheck3);
 		panel_4.add(thirdcheck4);
-		
+		thirdcheck1.setBackground(Color.white);                  
+		thirdcheck2.setBackground(Color.white);                  
+		thirdcheck3.setBackground(Color.white);                  
+		thirdcheck4.setBackground(Color.white);                  
+
 		// 판넬에  다섯번째 질문 추가 
 		panel5.add(text5);
 		panel_5.add(secondButton1);
 		panel_5.add(secondButton2);
-		
+		secondButton1.setBackground(Color.white);                  
+		secondButton2.setBackground(Color.white);                  
+
 		// 판넬에  여섯번째 질문 추가 
 		panel6.add(text6);
 		panel_6.add(thirdButton1);
 		panel_6.add(thirdButton2);
-		
+		thirdButton1.setBackground(Color.white);                  
+		thirdButton2.setBackground(Color.white);                  
+
 		// 판넬에  일곱번째 질문 추가 
 		panel7.add(text7);
 		panel_7.add(fourthButton1);
 		panel_7.add(fourthButton2);
-		
+		fourthButton1.setBackground(Color.white);                  
+		fourthButton2.setBackground(Color.white);                  
+
 		panel8.add(button);
 		
 		// 판넬 추가

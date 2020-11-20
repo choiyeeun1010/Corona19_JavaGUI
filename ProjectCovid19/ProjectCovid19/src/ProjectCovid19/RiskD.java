@@ -21,19 +21,18 @@ public class RiskD extends JPanel {
 	private JPanel space, panel1, panel2;
 	private JLabel string, date_Select;
 	private JComboBox<String> monthCombo;
-	private String Month[] = { "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월"};
+	private String Month[] = { "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월" };
 	private JButton search;
 
 	// 아래쪽
 	private JPanel centerPanel, choice;
 	private static JTable table;
 	private DefaultTableModel model;
-	private String title[] = {"지역", "확진자 수" };
+	private String title[] = { "지역", "확진자 수" };
 	private JScrollPane scrollpane;
 
 	// 그래프 버튼
-	private JLabel unit;
-	private JButton showMap, showBarGraph;
+	private JButton showMap, showBarGraph; // showLineGraph;
 	private JFrame areaGraph;
 
 	// 리스너
@@ -41,7 +40,6 @@ public class RiskD extends JPanel {
 	private String myDate;
 
 	public RiskD() {
-
 		// 레이아웃 설정
 		this.setLayout(new GridLayout(2, 1));
 		North();
@@ -64,6 +62,7 @@ public class RiskD extends JPanel {
 
 		// 레이블
 		string = new JLabel("전체의 확진자를 월별로 조회합니다.");
+		string.setFont(string.getFont().deriveFont(15.0f));
 		date_Select = new JLabel("날짜 : 2020년 ");
 
 		// 콤보박스
@@ -111,7 +110,10 @@ public class RiskD extends JPanel {
 
 		showBarGraph = new JButton("막대 그래프보기");
 		showBarGraph.setBackground(Color.white);
-		
+
+//		showLineGraph = new JButton("꺽은선 그래프보기");
+//		showLineGraph.setBackground(Color.white);
+
 		// 모델에 테이블 원본데이터를 복사해두고 원본데이터를 건들지 않고
 		// 모델데이터를 조작하여 테이블을 변경
 		// 모델 설정
@@ -121,24 +123,25 @@ public class RiskD extends JPanel {
 			model = (DefaultTableModel) table.getModel();
 			model.addRow(new String[] { "", "", "", "", "" });
 		}
-		
+
 		// 테이블 설정
 		scrollpane = new JScrollPane(table);
 		scrollpane.setPreferredSize(new Dimension(400, 100));
 
-		// 패널에 추가 
+		// 패널에 추가
 		centerPanel.add(scrollpane);
 		choice.add(showMap);
 		choice.add(showBarGraph);
-		
+//		choice.add(showLineGraph);
+
 		south.add(centerPanel);
 		south.add(choice);
 		add(south);
-		
+
 		// 리스너 달기
 		showMap.addActionListener(Listener);
 		showBarGraph.addActionListener(Listener);
-
+//		showLineGraph.addActionListener(Listener);
 	}
 
 	// 확진자 조회 결과를 보여줌
@@ -153,7 +156,6 @@ public class RiskD extends JPanel {
 
 			String sql;
 
-			//sql = "SELECT 확진일, 지역 FROM person WHERE 확진일 LIKE ? ORDER BY 지역 DESC";
 			sql = "SELECT 지역, COUNT(지역) AS 확진자수 FROM person WHERE 확진일 LIKE ? group by 지역  ORDER BY 확진자수";
 
 			ResultSet rs;
@@ -171,12 +173,12 @@ public class RiskD extends JPanel {
 			if (rs.next()) {
 				do {
 					model = (DefaultTableModel) table.getModel();
-					model.insertRow(0, new Object[] { rs.getString(1), rs.getString(2)});
+					model.insertRow(0, new Object[] { rs.getString(1), rs.getString(2) });
 				} while (rs.next());
 			} else {
 				// 만약 결과가 없다면 결과 없음으로 출력
 				model = (DefaultTableModel) table.getModel();
-				model.insertRow(0, new Object[] {"결과없음", "결과없음"});
+				model.insertRow(0, new Object[] { "결과없음", "결과없음" });
 			}
 			System.out.println(table.getRowCount());
 
@@ -198,6 +200,7 @@ public class RiskD extends JPanel {
 				// 함수 호출
 				setTable(date);
 				myDate = date;
+
 			} else if (e.getSource() == showMap || e.getSource() == showBarGraph) {
 				System.out.println("버튼 클릭");
 
@@ -213,41 +216,50 @@ public class RiskD extends JPanel {
 						break;
 					}
 				}
+
+				// 크기가 가변적이라 리스트에 저장
 				ArrayList<String> x = new ArrayList<String>();
 				ArrayList<String> data = new ArrayList<String>();
-				// 그래프로 데이터 전달해주기 
-				
-				if ((String)monthCombo.getSelectedItem() == "1월") {
+
+				// 그래프로 데이터 전달해주기
+				// 1월만 예외처리 why? 1월에 확진자가 있는 구가 5개 밖에 없음
+				if ((String) monthCombo.getSelectedItem() == "1월") {
 					for (int i = 0; i < 5; i++) {
-						x.add((String)table.getValueAt(i,  0));
+						x.add((String) table.getValueAt(i, 0));
 					}
 					for (int i = 0; i < 5; i++) {
-						data.add((String)table.getValueAt(i,  1));
+						data.add((String) table.getValueAt(i, 1));
 					}
 					for (int i = 0; i < 5; i++) {
 						System.out.println(x.get(i) + "     " + data.get(i));
 					}
 				}
+				// 나머지 월들은 상위 13개만 넘겨주기
 				else {
 					for (int i = 0; i < 13; i++) {
-						x.add((String)table.getValueAt(i,  0));
+						x.add((String) table.getValueAt(i, 0));
 					}
 					for (int i = 0; i < 13; i++) {
-						data.add((String)table.getValueAt(i,  1));
+						data.add((String) table.getValueAt(i, 1));
 					}
 					for (int i = 0; i < 13; i++) {
 						System.out.println(x.get(i) + "     " + data.get(i));
 					}
 				}
-				
+
 				if (!isEmpty) {
 					if (e.getSource() == showMap) {
 						areaGraph = new RiskDMap();
 						areaGraph.setVisible(true);
-					}else if(e.getSource() == showBarGraph) {
-						areaGraph = new RiskDGraph(x, data, myDate);
+					} else if (e.getSource() == showBarGraph) {
+						areaGraph = new RiskDGraph(x, data, myDate, "Bar");
 						areaGraph.setVisible(true);
 					}
+					// 꺾은선 그래프
+					/*else if (e.getSource() == showLineGraph) {
+						areaGraph = new RiskDGraph(x, data, myDate, "Line");
+						areaGraph.setVisible(true);
+					}*/
 				}
 			}
 		}

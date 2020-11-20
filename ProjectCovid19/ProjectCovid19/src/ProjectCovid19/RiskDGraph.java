@@ -17,26 +17,27 @@ public class RiskDGraph extends JFrame {
 	// 변수
 	private int max; // 최댓값
 	private int min; // 최소값
-	private Double[] range = new Double[16];
+	private ArrayList<String> range = new ArrayList<String>();
 	private String yIndex;// y축 입력값
 
 	// 가져온 값
-	private String myGas;
 	private String design;
 	private ArrayList<String> x = new ArrayList<String>();
 	private ArrayList<String> data = new ArrayList<String>();
 	private String myDate;
 
-	public RiskDGraph(ArrayList<String> x, ArrayList<String> data, String myDate) {
+	public RiskDGraph(ArrayList<String> x, ArrayList<String> data, String myDate, String design) {
 
 		this.x = x;
 		this.data = data;
 		this.myDate = myDate;
+		this.design = design;
 
 		this.setTitle(this.myDate + "의 확진자 수 그래프");
 		this.setSize(900, 600);
 		this.setLocation(450, 250);
 		this.setBackground(Color.white);
+
 		// 패널 및 클래스
 		contentpane = getContentPane();
 		contentpane.setLayout(new BorderLayout());
@@ -105,31 +106,32 @@ public class RiskDGraph extends JFrame {
 			double val = Math.round(((max - min) / 15) * 10000) / 10000.0;
 
 			// y축
-			for (int cnt = 80; cnt < 400; cnt = cnt + 20) {
+			int a = 0;
+			int b = 405;
+			int temp1 = 0;
+			int temp2 = 80;
+			for (int cnt = 80; cnt < 400; cnt += 20) {
 				g.setColor(new Color(189, 189, 189));
 				g.drawLine(100, cnt, 800, cnt);
-				g.setColor(new Color(0, 0, 0));
+				g.setColor(new Color(0, 0, 0));	
+				
+				
+				if (min <= 70) {
+					temp1 += 5;
+					System.out.println("temp: " + temp1);
 
+					range.add(Integer.toString(temp1));
+					yIndex = Integer.toString(temp1);
+				}else {
+					temp2 += 5;
+					range.add(Integer.toString(temp2));
+					yIndex = Integer.toString(temp2);
+				}
+				b -= 20;
+				g.drawString(range.get(a), 75, b);
+				a++;
 			}
-			yIndex = Double.toString(max);
-			g.drawString("80", 75, 85);
-			g.drawString("75", 75, 105);
-			g.drawString("70", 75, 125);
-			g.drawString("65", 75, 145);
-			g.drawString("60", 75, 165);
-			g.drawString("55", 75, 185);
-			g.drawString("50", 75, 205);
-			g.drawString("45", 75, 225);
-			g.drawString("40", 75, 245);
-			g.drawString("35", 75, 265);
-			g.drawString("30", 75, 285);
-			g.drawString("25", 75, 305);
-			g.drawString("20", 75, 325);
-			g.drawString("15", 75, 345);
-			g.drawString("10", 75, 365);
-			g.drawString(" 5", 75, 385);
-			g.drawString(" 1", 75, 400);
-
+			
 			// x축
 			int i = 0;
 			for (int cnt = 125; cnt < 900 && i < data.size(); cnt = cnt + 50) {
@@ -137,7 +139,42 @@ public class RiskDGraph extends JFrame {
 				i++;
 			}
 
-			
+			// 막대그리기
+			int[] r = new int[data.size()];
+			int[] s = new int[data.size()];
+			for (i = 0; i < data.size(); i++) {
+				int mg = numberData[i];
+				System.out.println("mg: " + mg);
+				if (mg == 0) {
+					if (!design.equals("Bar")) {
+						r[i] = 145 + i * 100 + 14;
+						s[i] = 400;
+					}
+					continue;
+				}
+				for (int j = 0; j < data.size(); j++) {
+
+					if (design.equals("Bar")) {
+						if(mg >= 85) {
+							g.setColor(new Color(213, 247, 248));
+							g.fillRect(130 + i * 50, 50, 30, 350);
+						}else {
+							g.setColor(new Color(213, 247, 248));
+							g.fillRect(130 + i * 50, 400-mg*4, 30, mg*4);
+						}
+					} 
+//					else { // 꺾은선 그래프 좌표
+//						r[i] = 130 + i * 50;
+//						s[i] = 400-mg*4;
+//						
+//					}
+				}
+			}
+			// 꺾은선 그래프 그리기
+//			g2.setStroke(new BasicStroke(3));
+//			g2.setColor(Color.black);
+//			g2.drawPolyline(r, s, 13);
+//			g2.setStroke(new BasicStroke(1));
 
 		}
 	}
@@ -145,7 +182,7 @@ public class RiskDGraph extends JFrame {
 	private class Listener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if (e.getSource() == close) { // 결과보기 버튼을 눌렀을 경우
+			if (e.getSource() == close) { 
 				System.out.println("닫기 버튼 클릭");
 				setVisible(false);
 			}
