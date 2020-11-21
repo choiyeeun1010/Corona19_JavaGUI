@@ -28,7 +28,7 @@ public class Month extends JPanel {
 	private JPanel centerPanel, choice;
 	private static JTable table;
 	private DefaultTableModel model;
-	private String title[] = { "월", "확진자 수" };
+	private String title[] = { "연번", "확진일" };
 	private JScrollPane scrollpane;
 
 	// 그래프 버튼
@@ -116,10 +116,9 @@ public class Month extends JPanel {
 		// 버튼 설정
 		showBarGraph = new JButton("막대 그래프 보기");
 		showBarGraph.setBackground(Color.white);
-		
+
 		showLineGraph = new JButton("꺾은선 그래프 보기");
 		showLineGraph.setBackground(Color.white);
-
 
 		// 리스너 달기
 		showLineGraph.addActionListener(Listener);
@@ -162,7 +161,6 @@ public class Month extends JPanel {
 			String sql2;
 
 			sql = "SELECT 연번, 확진일, 환자번호, 지역, 접촉력, 상태 FROM person WHERE 지역 = ? ORDER BY 연번 DESC";
-			sql2 = "SELECT count(*) FROM person WHERE 지역 = ?";
 			ResultSet rs;
 			PreparedStatement pstmt = connection.prepareStatement(sql);
 			pstmt.setString(1, region);
@@ -178,7 +176,7 @@ public class Month extends JPanel {
 			for (int i = 0; i < month_num.length; i++) { // 수정
 				month_num[i] = 0; // 수정
 			}
-			
+
 			if (rs.next()) {
 				do {
 					// 막대그래프 계산
@@ -227,8 +225,22 @@ public class Month extends JPanel {
 				date = (String) monthCombo.getSelectedItem();
 				// 함수 호출
 				setTable(region, date);
-			}else if (e.getSource() == showBarGraph || e.getSource() == showLineGraph) {
+			} else {
 				System.out.println("그래프버튼 눌림");
+
+				boolean isEmpty = false;
+				for (int i = 0; i < 7; i++) {
+					if (table.getValueAt(i, 1) == "") {
+						if (i == 6) {
+							// 모든 데이터가 없을 경우
+							JOptionPane.showMessageDialog(null, "조회 할 데이터가 없습니다!");
+							isEmpty = true;
+						}
+					} else {
+						break;
+					}
+				}
+
 				String region = "";
 				String date = "";
 
@@ -237,8 +249,17 @@ public class Month extends JPanel {
 				// 함수 호출
 				setTable(region, date);
 				int pureDate = take_num(date);
-				frame = new MonthGraph(region, pureDate, month_num, "Bar");
-				frame.setVisible(true);
+
+				if (!isEmpty) {
+					if (e.getSource() == showBarGraph) {
+						frame = new MonthGraph(region, pureDate, month_num, "Bar");
+						frame.setVisible(true);
+					} else if (e.getSource() == showLineGraph) {
+						frame = new MonthGraph(region, pureDate, month_num, "Line");
+						frame.setVisible(true);
+					}
+				}
+
 			}
 		}
 	}

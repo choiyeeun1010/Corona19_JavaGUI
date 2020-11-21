@@ -139,13 +139,13 @@ public class RegionGraph extends JFrame {
 				
 				for (int j = 0; j < data.size(); j++) {
 					if (min >= 70) {
-						g.setColor(new Color(213, 247, 248));
+						g.setColor(new Color(39, 204, 188));
 						g.fillRect(130 + i * 50, 400 - ((mg - 70) * 2), 30, (mg - 70) * 2);
 					} else if (mg >= 85) {
-						g.setColor(new Color(213, 247, 248));
+						g.setColor(new Color(39, 204, 188));
 						g.fillRect(130 + i * 50, 50, 30, 350);
 					} else {
-						g.setColor(new Color(213, 247, 248));
+						g.setColor(new Color(39, 204, 188));
 						g.fillRect(130 + i * 50, 400 - mg * 4, 30, mg * 4);
 					}
 				}

@@ -195,12 +195,10 @@ public class Region extends JPanel {
 				myDate = date;
 
 			} else if (e.getSource() == showMap || e.getSource() == showBarGraph) {
-				System.out.println("버튼 클릭");
-
 				boolean isEmpty = false;
-				for (int i = 0; i < 2; i++) {
+				for (int i = 0; i < 7; i++) {
 					if (table.getValueAt(i, 1) == "") {
-						if (i == 2) {
+						if (i == 6) {
 							// 모든 데이터가 없을 경우
 							JOptionPane.showMessageDialog(null, "조회 할 데이터가 없습니다!");
 							isEmpty = true;
@@ -239,7 +237,10 @@ public class Region extends JPanel {
 						System.out.println(x.get(i) + "     " + data.get(i));
 					}
 				}
-
+				String date = "";
+				date = (String) monthCombo.getSelectedItem();
+				setTable(date);
+				myDate = date;
 				if (!isEmpty) {
 					if (e.getSource() == showMap) {
 						frame = new Map();

@@ -55,19 +55,17 @@ public class MonthGraph extends JFrame {
 		South.add(close);
 		contentpane.add(new drawGraph(), BorderLayout.CENTER);
 		contentpane.add(South, BorderLayout.SOUTH);
-
-		this.setVisible(true);
 	}
 
 	class drawGraph extends JPanel {
 		public void paint(Graphics go) {
 			Graphics2D g = (Graphics2D) go;
-
+			Graphics2D g2 = (Graphics2D) g;
 			super.paint(g);
 			g.clearRect(0, 0, 900, 500);
 			g.drawLine(100, 400, 800, 400); // x축
 			g.drawLine(100, 60, 100, 400); // y축
-			
+
 			// 세로선
 			int a = 0;
 			int b = 405;
@@ -82,31 +80,46 @@ public class MonthGraph extends JFrame {
 				g.drawString(range.get(a), 75, b);
 				a++;
 			}
-			
+
 			for (int i = 0; i < 9; i++) {
 				g.setColor(Color.BLACK);
 				g.drawString(Integer.toString((i + 1)) + "월", 130 + i * 65, 425);
 			}
-			g.drawString("평균", 780, 425);
 
 			// 막대그리기
+			int[] r = new int[9];
+			int[] s = new int[9];
 			for (int i = 0; i < 9; i++) {
-				g.setColor(Color.BLACK);
-				System.out.println("month_num: " + month_num[i]);
 
-				g.setColor(new Color(213, 247, 248));
-				if (i + 1 == date) {
+				if (design.equals("Bar")) {
+
 					g.setColor(Color.BLACK);
-				}
-				g.fillRect(130 + i * 65, 400 - month_num[i] * 4, 30, month_num[i] * 4);
-				sum += month_num[i];
-			}
+					System.out.println("month_num: " + month_num[i]);
 
-			// 평균
-			g.setColor(Color.BLACK);
-			sum = Math.round(sum / 10);
-			g.setColor(Color.BLACK);
-			g.fillRect(715, 400 - sum * 4, 30, sum * 4);
+					g.setColor(new Color(39, 204, 188));
+					if (i + 1 == date) {
+						g.setColor(Color.BLACK);
+					}
+					g.fillRect(130 + i * 65, 400 - month_num[i] * 4, 30, month_num[i] * 4);
+					sum += month_num[i];
+					
+					// 평균
+					g.setColor(Color.BLACK);
+					g.drawString("평균", 715, 425);
+					sum = Math.round(sum / 10);
+					g.setColor(Color.BLACK);
+					g.fillRect(715, 400 - sum * 4, 30, sum * 4);
+					
+				}else {
+					// 꺾은선 그래프 좌표
+					r[i] = 130 + i * 65;
+					s[i] = 400 - month_num[i] * 4;
+				}
+			}
+			g2.setStroke(new BasicStroke(3));
+			g2.setColor(Color.black);
+			g2.drawPolyline(r, s, 9);
+			g2.setStroke(new BasicStroke(1));
 		}
 	}
 
@@ -119,5 +132,4 @@ public class MonthGraph extends JFrame {
 			}
 		}
 	}
-
 }

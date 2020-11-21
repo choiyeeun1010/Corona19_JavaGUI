@@ -299,14 +299,14 @@ public class SelfCheck extends JPanel{
 				}
 				if (score >= 340) 
 					JOptionPane.showMessageDialog(null, "이 증상들이 진짜라면 이거 체크할 시간에 병원을 가보시길...");
-				else if (score >= 100) 
+				else if (score >= 100 && score < 340) 
 					JOptionPane.showMessageDialog(null, "심각한 증상있네요 검사 받으세요!!");
-				else if (score >= 20)
+				else if (score >= 20 && score < 100)
 					JOptionPane.showMessageDialog(null, "공통적인 증상있네요 검사 받으세요!!");
-				else if (score >=10)
+				else if (score >= 5 && score < 20)
 					JOptionPane.showMessageDialog(null, "몸 상태가 안좋네요 관리하세요 ㅎㅎ");
 				else if (score == 0)
-					JOptionPane.showMessageDialog(null, "잘하고 있어요 화이팅");
+					JOptionPane.showMessageDialog(null, "잘하고 있어요 화이팅 ㅇㅅㅇ,,");
 			}
 		}
 	}
