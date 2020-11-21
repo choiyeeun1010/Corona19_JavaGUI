@@ -64,10 +64,10 @@ public class ContactGraph extends JFrame {
 			}
 		}
 		
-		color.add(Color.BLUE);
-		color.add(Color.RED);
-		color.add(Color.MAGENTA);
-		color.add(Color.ORANGE);
+		color.add(new Color(0, 63, 92));
+		color.add(new Color(122, 81, 149));
+		color.add(new Color(239, 86, 117));
+		color.add(new Color(255, 166, 0));
 
 		this.setTitle(region + " 접촉 현황");
 		this.setSize(900, 600);
@@ -124,7 +124,9 @@ public class ContactGraph extends JFrame {
 			}
 			
 			super.paint(g);
-				
+			g.clearRect(0, 0, 900, 500);
+			g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
 			// 총 확진자 수 글짜 크기 설정 및 작성
 			g.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 			g.drawString(allPeople + " " + sum + "명", 900 / 2 - allPeople.length()*10 , 50);
@@ -142,10 +144,14 @@ public class ContactGraph extends JFrame {
  
 			for(int i=0;i<data.size();i++){
 				g.setColor(color.get(i));
-				g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-				g.fillArc(300,150,300,300,startAngle,arcAngle.get(i));
+				if (data.get(i) < 150) {
+					g.fillArc(300,150,300,300,startAngle,arcAngle.get(i) + 1);
+				} else {
+					g.fillArc(300,150,300,300,startAngle,arcAngle.get(i));
+				}
 				startAngle = startAngle + arcAngle.get(i);
 			}
+			
 
 		}
 	}
