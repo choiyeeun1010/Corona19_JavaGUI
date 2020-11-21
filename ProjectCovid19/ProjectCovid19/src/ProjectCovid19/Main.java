@@ -86,7 +86,7 @@ public class Main extends JFrame {
 		// 카드 생성
 		mainHomeCard = new MainHome();
 		totalCard = new Total();
-		// routeCard = new Route();
+		contactCard = new Contact();
 		regionCard = new Region();
 		monthCard = new Month();
 		selfCheckCard = new SelfCheck();
@@ -94,7 +94,7 @@ public class Main extends JFrame {
 
 		cards.add(mainHomeCard, "function_MainHome");
 		cards.add(totalCard, "function_Total");
-		// cards.add(contactCard, "function_Contact");
+		cards.add(contactCard, "function_Contact");
 		cards.add(regionCard, "function_Region");
 		cards.add(monthCard, "function_Month");
 		cards.add(selfCheckCard, "function_SelfCheck");
