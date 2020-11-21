@@ -8,7 +8,7 @@ import javax.swing.*;
 
 import java.awt.*;
 
-public class RiskDGraph extends JFrame {
+public class RegionGraph extends JFrame {
 	// 패널
 	Container contentpane;
 	private JPanel South;
@@ -25,7 +25,7 @@ public class RiskDGraph extends JFrame {
 	private ArrayList<String> data = new ArrayList<String>();
 	private String myDate;
 
-	public RiskDGraph(ArrayList<String> x, ArrayList<String> data, String myDate, String design) {
+	public RegionGraph(ArrayList<String> x, ArrayList<String> data, String myDate, String design) {
 
 		this.x = x;
 		this.data = data;

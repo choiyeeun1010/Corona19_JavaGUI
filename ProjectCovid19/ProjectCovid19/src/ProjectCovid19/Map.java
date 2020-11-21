@@ -27,7 +27,7 @@ class ImagePanel extends JPanel {
 	}
 }
 
-public class RiskDMap extends JFrame {
+public class Map extends JFrame {
 	private String[] locationList = { "선택하세요", "강남구", "강남대로", "강동구", "강변북로", "강북구", "강서구", "공항대로", "관악구", "관악산", "광진구",
 			"구로구", "궁동", "금천구", "남산", "노원구", "도봉구", "도산대로", "동대문구", "동작구", "동작대로", "마포구", "북한산", "서대문구", "서초구", "성동구",
 			"성북구", "세곡", "송파구", "시흥대로", "신촌로", "양천구", "영등포구", "영등포로", "용산구", "은평구", "정릉로", "종로", "종로구", "중구", "중랑구",
@@ -44,7 +44,7 @@ public class RiskDMap extends JFrame {
 	private String[] result = new String[47];
 	public JLabel[] dot = new JLabel[47];
 
-	public RiskDMap() {
+	public Map() {
 
 		ImagePanel panel = new ImagePanel(new ImageIcon("./images/지도.png").getImage());
 
