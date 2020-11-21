@@ -32,7 +32,7 @@ public class RiskD extends JPanel {
 	private JScrollPane scrollpane;
 
 	// 그래프 버튼
-	private JButton showMap, showBarGraph; // showLineGraph;
+	private JButton showMap, showBarGraph;
 	private JFrame areaGraph;
 
 	// 리스너
@@ -111,9 +111,6 @@ public class RiskD extends JPanel {
 		showBarGraph = new JButton("막대 그래프보기");
 		showBarGraph.setBackground(Color.white);
 
-//		showLineGraph = new JButton("꺽은선 그래프보기");
-//		showLineGraph.setBackground(Color.white);
-
 		// 모델에 테이블 원본데이터를 복사해두고 원본데이터를 건들지 않고
 		// 모델데이터를 조작하여 테이블을 변경
 		// 모델 설정
@@ -132,7 +129,6 @@ public class RiskD extends JPanel {
 		centerPanel.add(scrollpane);
 		choice.add(showMap);
 		choice.add(showBarGraph);
-//		choice.add(showLineGraph);
 
 		south.add(centerPanel);
 		south.add(choice);
@@ -141,7 +137,6 @@ public class RiskD extends JPanel {
 		// 리스너 달기
 		showMap.addActionListener(Listener);
 		showBarGraph.addActionListener(Listener);
-//		showLineGraph.addActionListener(Listener);
 	}
 
 	// 확진자 조회 결과를 보여줌
@@ -205,9 +200,9 @@ public class RiskD extends JPanel {
 				System.out.println("버튼 클릭");
 
 				boolean isEmpty = false;
-				for (int i = 0; i < 7; i++) {
+				for (int i = 0; i < 2; i++) {
 					if (table.getValueAt(i, 1) == "") {
-						if (i == 6) {
+						if (i == 2) {
 							// 모든 데이터가 없을 경우
 							JOptionPane.showMessageDialog(null, "조회 할 데이터가 없습니다!");
 							isEmpty = true;
@@ -255,11 +250,6 @@ public class RiskD extends JPanel {
 						areaGraph = new RiskDGraph(x, data, myDate, "Bar");
 						areaGraph.setVisible(true);
 					}
-					// 꺾은선 그래프
-					/*else if (e.getSource() == showLineGraph) {
-						areaGraph = new RiskDGraph(x, data, myDate, "Line");
-						areaGraph.setVisible(true);
-					}*/
 				}
 			}
 		}
