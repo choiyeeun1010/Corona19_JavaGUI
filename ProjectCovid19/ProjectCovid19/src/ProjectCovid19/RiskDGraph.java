@@ -109,7 +109,7 @@ public class RiskDGraph extends JFrame {
 			int a = 0;
 			int b = 405;
 			int temp1 = 0;
-			int temp2 = 80;
+			int temp2 = 70;
 			for (int cnt = 80; cnt < 400; cnt += 20) {
 				g.setColor(new Color(189, 189, 189));
 				g.drawLine(100, cnt, 800, cnt);
@@ -123,7 +123,7 @@ public class RiskDGraph extends JFrame {
 					range.add(Integer.toString(temp1));
 					yIndex = Integer.toString(temp1);
 				}else {
-					temp2 += 5;
+					temp2 += 10;
 					range.add(Integer.toString(temp2));
 					yIndex = Integer.toString(temp2);
 				}
@@ -155,7 +155,11 @@ public class RiskDGraph extends JFrame {
 				for (int j = 0; j < data.size(); j++) {
 
 					if (design.equals("Bar")) {
-						if(mg >= 85) {
+						if (min >= 70) {
+							g.setColor(new Color(213, 247, 248));
+							g.fillRect(130 + i * 50, 400-((mg-70)*2), 30, (mg-70)*2);
+						}
+						else if (mg >= 85) {
 							g.setColor(new Color(213, 247, 248));
 							g.fillRect(130 + i * 50, 50, 30, 350);
 						}else {
