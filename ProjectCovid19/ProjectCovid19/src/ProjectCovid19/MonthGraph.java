@@ -60,8 +60,8 @@ public class MonthGraph extends JFrame {
 	class drawGraph extends JPanel {
 		public void paint(Graphics go) {
 			Graphics2D g = (Graphics2D) go;
-			Graphics2D g2 = (Graphics2D) g;
 			super.paint(g);
+			g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 			g.clearRect(0, 0, 900, 500);
 			g.drawLine(100, 400, 800, 400); // x축
 			g.drawLine(100, 60, 100, 400); // y축
@@ -116,10 +116,10 @@ public class MonthGraph extends JFrame {
 					s[i] = 400 - month_num[i] * 4;
 				}
 			}
-			g2.setStroke(new BasicStroke(3));
-			g2.setColor(Color.black);
-			g2.drawPolyline(r, s, 9);
-			g2.setStroke(new BasicStroke(1));
+			g.setStroke(new BasicStroke(3));
+			g.setColor(Color.black);
+			g.drawPolyline(r, s, 9);
+			g.setStroke(new BasicStroke(1));
 		}
 	}
 

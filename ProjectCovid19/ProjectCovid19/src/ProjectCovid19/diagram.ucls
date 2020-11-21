@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="ProjectCovid19.ContactGraph" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/ContactGraph.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="232" width="194" x="876" y="-105"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="ProjectCovid19.Driver" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/Driver.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="130" x="1890" y="887"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="ProjectCovid19.ContactGraph.drawGraph" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/ContactGraph.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="140" x="786" y="887"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="ProjectCovid19.Total" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/Total.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="520" width="231" x="1356" y="-105"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="ProjectCovid19.Main.MyMouseListener" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/Main.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="178" width="224" x="1681" y="1683"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="ProjectCovid19.Contact.Listener" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/Contact.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="223" x="1627" y="887"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="ProjectCovid19.Map" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/Map.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="214" width="246" x="280" y="-105"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="ProjectCovid19.Total.Listener" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/Total.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="223" x="1356" y="887"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="ProjectCovid19.Contact" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/Contact.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="322" width="230" x="1627" y="-105"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="ProjectCovid19.MainHome" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/MainHome.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="124" width="104" x="566" y="-105"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="ProjectCovid19.ContactGraph.Listener" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/ContactGraph.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="223" x="966" y="887"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="ProjectCovid19.SelfCheck.Listener" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/SelfCheck.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="223" x="2137" y="887"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="ProjectCovid19.MonthGraph.drawGraph" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/MonthGraph.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="140" x="2400" y="887"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="ProjectCovid19.Region.Listener" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/Region.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="223" x="2843" y="887"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="ProjectCovid19.SelfCheck" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/SelfCheck.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="952" width="198" x="2137" y="-105"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="ProjectCovid19.MonthGraph" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/MonthGraph.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="286" width="221" x="2490" y="-105"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="ProjectCovid19.Words" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/Words.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="160" width="126" x="710" y="-105"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="ProjectCovid19.Login" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/Login.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="196" width="194" x="2041" y="1033"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="ProjectCovid19.Region" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/Region.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="520" width="231" x="2843" y="-105"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="ProjectCovid19.Main" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/Main.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="610" width="188" x="1813" y="1033"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="ProjectCovid19.ImagePanel" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/MainHome.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="124" width="206" x="1110" y="-105"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="ProjectCovid19.RegionGraph.Listener" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/RegionGraph.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="223" x="3377" y="887"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="ProjectCovid19.MonthGraph.Listener" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/MonthGraph.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="223" x="2580" y="887"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="ProjectCovid19.RegionGraph.drawGraph" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/RegionGraph.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="140" x="3640" y="887"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="ProjectCovid19.Month" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/Month.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="592" width="231" x="3114" y="-105"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="ProjectCovid19.Main.Listener" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/Main.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="223" x="1945" y="1683"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="ProjectCovid19.RegionGraph" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/RegionGraph.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="268" width="393" x="3387" y="-105"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="ProjectCovid19.Month.Listener" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/Month.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="223" x="3114" y="887"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="ProjectCovid19.DB" project="ProjectCovid19_ProjectCovid19" 
+    file="/ProjectCovid19_ProjectCovid19/src/ProjectCovid19/DB.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="196" width="200" x="1897" y="-105"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <nesting id="30">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="13"/>  
+  </nesting>  
+  <association id="31">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="32" name="Listener"/>      
+      <multiplicity id="33" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="34">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="23"/>  
+  </nesting>  
+  <nesting id="35">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="3"/>  
+  </nesting>  
+  <nesting id="36">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="11"/>  
+  </nesting>  
+  <nesting id="37">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="24"/>  
+  </nesting>  
+  <association id="38">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="39" name="main"/>      
+      <multiplicity id="40" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="41">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="42" name="driver"/>      
+      <multiplicity id="43" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="44">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="28"/>  
+  </nesting>  
+  <nesting id="45">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="12"/>  
+  </nesting>  
+  <nesting id="46">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="14"/>  
+  </nesting>  
+  <nesting id="47">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="22"/>  
+  </nesting>  
+  <association id="48">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="49" name="Listener"/>      
+      <multiplicity id="50" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="51">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="52" name="login"/>      
+      <multiplicity id="53" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="54">    
+    <bendpoint x="2050" y="887"/>    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="55" name="login"/>      
+      <multiplicity id="56" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="57">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="5"/>  
+  </nesting>  
+  <nesting id="58">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="6"/>  
+  </nesting>  
+  <association id="59">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="60" name="Listener"/>      
+      <multiplicity id="61" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="62">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="63" name="Listener"/>      
+      <multiplicity id="64" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="65">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="8"/>  
+  </nesting>  
+  <nesting id="66">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="26"/>  
+  </nesting>  
+  <association id="67">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="68" name="Listener"/>      
+      <multiplicity id="69" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
