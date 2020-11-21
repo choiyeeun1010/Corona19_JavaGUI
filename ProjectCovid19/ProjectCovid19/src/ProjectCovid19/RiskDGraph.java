@@ -18,7 +18,6 @@ public class RiskDGraph extends JFrame {
 	private int max; // 최댓값
 	private int min; // 최소값
 	private ArrayList<String> range = new ArrayList<String>();
-	private String yIndex;// y축 입력값
 
 	// 가져온 값
 	private String design;
@@ -66,14 +65,13 @@ public class RiskDGraph extends JFrame {
 	class drawGraph extends JPanel {
 		public void paint(Graphics g) {
 			super.paint(g);
-			Graphics2D g2 = (Graphics2D) g;
 			g.clearRect(0, 0, 900, 500);
 			g.drawLine(100, 400, 800, 400); // x축
 			g.drawLine(100, 60, 100, 400); // y축
 
 			// 데이터 값들을 저장
 			int[] numberData = new int[data.size()];
-			System.out.println("size" + data.size());
+			System.out.println("size: " + data.size());
 			for (int i = 0; i < data.size(); i++) {
 				try {
 					numberData[i] = Integer.parseInt(data.get(i));
@@ -100,10 +98,9 @@ public class RiskDGraph extends JFrame {
 					continue;
 				min = min < numberData[i] ? min : numberData[i];
 			}
+			
 			System.out.println("max: " + max);
-
 			System.out.println("min: " + min);
-			double val = Math.round(((max - min) / 15) * 10000) / 10000.0;
 
 			// y축
 			int a = 0;
@@ -113,25 +110,21 @@ public class RiskDGraph extends JFrame {
 			for (int cnt = 80; cnt < 400; cnt += 20) {
 				g.setColor(new Color(189, 189, 189));
 				g.drawLine(100, cnt, 800, cnt);
-				g.setColor(new Color(0, 0, 0));	
-				
-				
+				g.setColor(new Color(0, 0, 0));
+
 				if (min <= 70) {
 					temp1 += 5;
-					System.out.println("temp: " + temp1);
-
 					range.add(Integer.toString(temp1));
-					yIndex = Integer.toString(temp1);
-				}else {
+					
+				} else {
 					temp2 += 10;
 					range.add(Integer.toString(temp2));
-					yIndex = Integer.toString(temp2);
 				}
 				b -= 20;
 				g.drawString(range.get(a), 75, b);
 				a++;
 			}
-			
+
 			// x축
 			int i = 0;
 			for (int cnt = 125; cnt < 900 && i < data.size(); cnt = cnt + 50) {
@@ -140,53 +133,30 @@ public class RiskDGraph extends JFrame {
 			}
 
 			// 막대그리기
-			int[] r = new int[data.size()];
-			int[] s = new int[data.size()];
 			for (i = 0; i < data.size(); i++) {
 				int mg = numberData[i];
 				System.out.println("mg: " + mg);
-				if (mg == 0) {
-					if (!design.equals("Bar")) {
-						r[i] = 145 + i * 100 + 14;
-						s[i] = 400;
-					}
-					continue;
-				}
+				
 				for (int j = 0; j < data.size(); j++) {
-
-					if (design.equals("Bar")) {
-						if (min >= 70) {
-							g.setColor(new Color(213, 247, 248));
-							g.fillRect(130 + i * 50, 400-((mg-70)*2), 30, (mg-70)*2);
-						}
-						else if (mg >= 85) {
-							g.setColor(new Color(213, 247, 248));
-							g.fillRect(130 + i * 50, 50, 30, 350);
-						}else {
-							g.setColor(new Color(213, 247, 248));
-							g.fillRect(130 + i * 50, 400-mg*4, 30, mg*4);
-						}
-					} 
-//					else { // 꺾은선 그래프 좌표
-//						r[i] = 130 + i * 50;
-//						s[i] = 400-mg*4;
-//						
-//					}
+					if (min >= 70) {
+						g.setColor(new Color(213, 247, 248));
+						g.fillRect(130 + i * 50, 400 - ((mg - 70) * 2), 30, (mg - 70) * 2);
+					} else if (mg >= 85) {
+						g.setColor(new Color(213, 247, 248));
+						g.fillRect(130 + i * 50, 50, 30, 350);
+					} else {
+						g.setColor(new Color(213, 247, 248));
+						g.fillRect(130 + i * 50, 400 - mg * 4, 30, mg * 4);
+					}
 				}
 			}
-			// 꺾은선 그래프 그리기
-//			g2.setStroke(new BasicStroke(3));
-//			g2.setColor(Color.black);
-//			g2.drawPolyline(r, s, 13);
-//			g2.setStroke(new BasicStroke(1));
-
 		}
 	}
 
 	private class Listener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if (e.getSource() == close) { 
+			if (e.getSource() == close) {
 				System.out.println("닫기 버튼 클릭");
 				setVisible(false);
 			}
