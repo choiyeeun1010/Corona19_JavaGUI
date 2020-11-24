@@ -61,6 +61,7 @@ public class MonthGraph extends JFrame {
 		public void paint(Graphics go) {
 			Graphics2D g = (Graphics2D) go;
 			super.paint(g);
+			// 라인 깔끔하게
 			g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 			g.clearRect(0, 0, 900, 500);
 			g.drawLine(100, 400, 800, 400); // x축
