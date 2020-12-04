@@ -156,9 +156,7 @@ public class Month extends JPanel {
 
 			connection = DB.makeConnection();
 			int pureDate = take_num(date);
-
 			String sql;
-			String sql2;
 
 			sql = "SELECT 연번, 확진일, 환자번호, 지역, 접촉력, 상태 FROM person WHERE 지역 = ? ORDER BY 연번 DESC";
 			ResultSet rs;
